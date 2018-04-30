@@ -24,6 +24,13 @@ namespace WorldData.Controllers
       //   List<Country> allCities = allCities.GetAll();
       //   return View("ViewAllCities");
       // }
+      [Route("/view-by-continent")]
+      public ActionResult Submit()
+      {
+        string userContinent = Request.Form["search-by-continent"];
+        List<Country> myContinents= Country.GetByContinent(userContinent);
+        return View("ViewAllCountries", myContinents);
+      }
 
     }
 
